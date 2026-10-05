@@ -1,0 +1,4 @@
+# SIAS 校园地图 Agent —— 运行依赖
+# 安装：pip install -r requirements.txt
+requests>=2.31.0
+folium>=0.15.0

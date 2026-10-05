@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ea241352d111a9f01f83cb857108298c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.1.2/dist/leaflet-ant-path.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+</head>
+<body>
+    
+    <div style='position:fixed;bottom:30px;left:30px;z-index:9999;background:rgba(255,255,255,.95);padding:10px 14px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.2);font-family:Microsoft YaHei,sans-serif'><div style='font-weight:700;font-size:13px;margin-bottom:6px'>地点类别</div><div style='display:flex;align-items:center;margin:3px 0'><span style='width:12px;height:12px;border-radius:50%;display:inline-block;background:#2A81CB;margin-right:6px'></span><span style='font-size:12px'>教学</span></div><div style='display:flex;align-items:center;margin:3px 0'><span style='width:12px;height:12px;border-radius:50%;display:inline-block;background:#9C2BCB;margin-right:6px'></span><span style='font-size:12px'>文化</span></div><div style='display:flex;align-items:center;margin:3px 0'><span style='width:12px;height:12px;border-radius:50%;display:inline-block;background:#4A9EA8;margin-right:6px'></span><span style='font-size:12px'>景观</span></div><div style='display:flex;align-items:center;margin:3px 0'><span style='width:12px;height:12px;border-radius:50%;display:inline-block;background:#2AAD27;margin-right:6px'></span><span style='font-size:12px'>生活</span></div><div style='display:flex;align-items:center;margin:3px 0'><span style='width:12px;height:12px;border-radius:50%;display:inline-block;background:#CB2B3E;margin-right:6px'></span><span style='font-size:12px'>行政</span></div><div style='display:flex;align-items:center;margin:3px 0'><span style='width:12px;height:12px;border-radius:50%;display:inline-block;background:#CB8427;margin-right:6px'></span><span style='font-size:12px'>运动</span></div></div>
+    <div style='position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(90deg,#1e3a8a,#7c3aed);color:#fff;padding:10px 26px;border-radius:10px;box-shadow:0 3px 14px rgba(0,0,0,.28);text-align:center;font-family:Microsoft YaHei,sans-serif'><div style='font-size:17px;font-weight:700;letter-spacing:1px'>郑州西亚斯学院 (SIAS) 交互式校园地图</div><div style='font-size:11px;opacity:.9;margin-top:3px'>共 8 个标记点 · 6 个类别 · by gemma4:e4b</div></div>
+    
+            <div class="folium-map" id="map_ea241352d111a9f01f83cb857108298c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ea241352d111a9f01f83cb857108298c = L.map(
+                "map_ea241352d111a9f01f83cb857108298c",
+                {
+                    center: [34.395, 113.74525],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": true,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_ea241352d111a9f01f83cb857108298c);
+
+            
+
+        
+    
+            var tile_layer_f506cec495384f4aaeec05193162b16f = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f506cec495384f4aaeec05193162b16f.addTo(map_ea241352d111a9f01f83cb857108298c);
+        
+    
+            var tile_layer_dd8b807b60513994d2df2f7c84db4f09 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Tiles \u0026copy; Esri \u0026mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_dd8b807b60513994d2df2f7c84db4f09.addTo(map_ea241352d111a9f01f83cb857108298c);
+        
+    
+            var tile_layer_25a417ccdb4fcafca4233e5da103b86c = L.tileLayer(
+                "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Map data \u0026copy; OpenStreetMap contributors | Style \u0026copy; OpenTopoMap (CC-BY-SA)",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_25a417ccdb4fcafca4233e5da103b86c.addTo(map_ea241352d111a9f01f83cb857108298c);
+        
+    
+            var feature_group_bccc3e972fe8746949bb72b60b18be1a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_8fb2c2f05c45bf669d64796b1d59da09 = L.marker(
+                [34.3975, 113.743],
+                {
+}
+            ).addTo(feature_group_bccc3e972fe8746949bb72b60b18be1a);
+        
+    
+            var icon_a65c9cbeb9d8cf00b379a852eb994b4c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "book",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_446f09fedffe24c71c1811a7e4a1552b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d3130bb4e0b9b082b2b80743067acdd6 = $(`<div id="html_d3130bb4e0b9b082b2b80743067acdd6" style="width: 100.0%; height: 100.0%;"><div style='font-family:Microsoft YaHei,sans-serif;width:250px'><h4 style='margin:0 0 6px 0;color:#9C2BCB'>中央图书馆</h4><div style='font-size:12px;color:#666;margin-bottom:6px'>类别：文化　坐标：34.39750, 113.74300</div><div style='font-size:13px;line-height:1.6'>校园知识中心，融合欧式古典风格的藏书楼，为师生提供丰富的学术资源和学习空间。</div></div></div>`)[0];
+                popup_446f09fedffe24c71c1811a7e4a1552b.setContent(html_d3130bb4e0b9b082b2b80743067acdd6);
+            
+        
+
+        marker_8fb2c2f05c45bf669d64796b1d59da09.bindPopup(popup_446f09fedffe24c71c1811a7e4a1552b)
+        ;
+
+        
+    
+    
+            marker_8fb2c2f05c45bf669d64796b1d59da09.bindTooltip(
+                `<div>
+                     中央图书馆 · 文化
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8fb2c2f05c45bf669d64796b1d59da09.setIcon(icon_a65c9cbeb9d8cf00b379a852eb994b4c);
+            
+    
+            feature_group_bccc3e972fe8746949bb72b60b18be1a.addTo(map_ea241352d111a9f01f83cb857108298c);
+        
+    
+            var feature_group_101c970e2b77a0b920aaf691783529a9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_d7b04f4211f16f6e1278a1d76c732bf2 = L.marker(
+                [34.3935, 113.7475],
+                {
+}
+            ).addTo(feature_group_101c970e2b77a0b920aaf691783529a9);
+        
+    
+            var icon_46e2bae3b2adb6bd4733cec6422b99a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1f570c7124e141dec869061085f0a80f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_61458f89d4e08a464b24288183e2545a = $(`<div id="html_61458f89d4e08a464b24288183e2545a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Microsoft YaHei,sans-serif;width:250px'><h4 style='margin:0 0 6px 0;color:#2A81CB'>国际交流中心</h4><div style='font-size:12px;color:#666;margin-bottom:6px'>类别：教学　坐标：34.39350, 113.74750</div><div style='font-size:13px;line-height:1.6'>国际合作项目洽谈地，设有多语种会议室和国际学生生活区，凸显学院的全球化视野。</div></div></div>`)[0];
+                popup_1f570c7124e141dec869061085f0a80f.setContent(html_61458f89d4e08a464b24288183e2545a);
+            
+        
+
+        marker_d7b04f4211f16f6e1278a1d76c732bf2.bindPopup(popup_1f570c7124e141dec869061085f0a80f)
+        ;
+
+        
+    
+    
+            marker_d7b04f4211f16f6e1278a1d76c732bf2.bindTooltip(
+                `<div>
+                     国际交流中心 · 教学
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d7b04f4211f16f6e1278a1d76c732bf2.setIcon(icon_46e2bae3b2adb6bd4733cec6422b99a4);
+            
+    
+            var marker_6512560114c1b3245e829da6bd6f8a75 = L.marker(
+                [34.395, 113.745],
+                {
+}
+            ).addTo(feature_group_101c970e2b77a0b920aaf691783529a9);
+        
+    
+            var icon_2c871e08ae1c1a108b20bacc4b5ab45b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ec6ddcaa482c17eb6b3e15117b3c125c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2fcb51a588cd65960079b22b8913842e = $(`<div id="html_2fcb51a588cd65960079b22b8913842e" style="width: 100.0%; height: 100.0%;"><div style='font-family:Microsoft YaHei,sans-serif;width:250px'><h4 style='margin:0 0 6px 0;color:#2A81CB'>主教学楼（欧式风格）</h4><div style='font-size:12px;color:#666;margin-bottom:6px'>类别：教学　坐标：34.39500, 113.74500</div><div style='font-size:13px;line-height:1.6'>主干道沿线的核心教学建筑，建筑风格融合古典欧式元素与现代教学功能设计。</div></div></div>`)[0];
+                popup_ec6ddcaa482c17eb6b3e15117b3c125c.setContent(html_2fcb51a588cd65960079b22b8913842e);
+            
+        
+
+        marker_6512560114c1b3245e829da6bd6f8a75.bindPopup(popup_ec6ddcaa482c17eb6b3e15117b3c125c)
+        ;
+
+        
+    
+    
+            marker_6512560114c1b3245e829da6bd6f8a75.bindTooltip(
+                `<div>
+                     主教学楼（欧式风格） · 教学
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6512560114c1b3245e829da6bd6f8a75.setIcon(icon_2c871e08ae1c1a108b20bacc4b5ab45b);
+            
+    
+            var marker_24c974b86312215e5189e41e6655f040 = L.marker(
+                [34.397, 113.747],
+                {
+}
+            ).addTo(feature_group_101c970e2b77a0b920aaf691783529a9);
+        
+    
+            var icon_6678009993bcc7a6a9aebc74cebab2c4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2138c91756ea5a92b12c5da12eefaa7c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1ba297a7ab4eb111fc153a8a25fb4b6a = $(`<div id="html_1ba297a7ab4eb111fc153a8a25fb4b6a" style="width: 100.0%; height: 100.0%;"><div style='font-family:Microsoft YaHei,sans-serif;width:250px'><h4 style='margin:0 0 6px 0;color:#2A81CB'>国际化学院楼</h4><div style='font-size:12px;color:#666;margin-bottom:6px'>类别：教学　坐标：34.39700, 113.74700</div><div style='font-size:13px;line-height:1.6'>专门用于国际化学科教学的现代化建筑，配备先进的智能教室和多媒体设备。</div></div></div>`)[0];
+                popup_2138c91756ea5a92b12c5da12eefaa7c.setContent(html_1ba297a7ab4eb111fc153a8a25fb4b6a);
+            
+        
+
+        marker_24c974b86312215e5189e41e6655f040.bindPopup(popup_2138c91756ea5a92b12c5da12eefaa7c)
+        ;
+
+        
+    
+    
+            marker_24c974b86312215e5189e41e6655f040.bindTooltip(
+                `<div>
+                     国际化学院楼 · 教学
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_24c974b86312215e5189e41e6655f040.setIcon(icon_6678009993bcc7a6a9aebc74cebab2c4);
+            
+    
+            feature_group_101c970e2b77a0b920aaf691783529a9.addTo(map_ea241352d111a9f01f83cb857108298c);
+        
+    
+            var feature_group_a78da14258b38f19561503de02ce7386 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_ffe2c9e60fb92dd27f07e982eb2d7603 = L.marker(
+                [34.392, 113.7465],
+                {
+}
+            ).addTo(feature_group_a78da14258b38f19561503de02ce7386);
+        
+    
+            var icon_2b3d6d9c6a9e2ae775807d8b02aed8e8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "futbol",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5ddae242dcf062a8dffe8a7ff8a1203e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cbfcf67f25b0c5a77b68726598827592 = $(`<div id="html_cbfcf67f25b0c5a77b68726598827592" style="width: 100.0%; height: 100.0%;"><div style='font-family:Microsoft YaHei,sans-serif;width:250px'><h4 style='margin:0 0 6px 0;color:#CB8427'>体育综合馆</h4><div style='font-size:12px;color:#666;margin-bottom:6px'>类别：运动　坐标：34.39200, 113.74650</div><div style='font-size:13px;line-height:1.6'>配备标准篮球场、健身房及多功能训练室，是学生体育锻炼和集体活动的聚集地。</div></div></div>`)[0];
+                popup_5ddae242dcf062a8dffe8a7ff8a1203e.setContent(html_cbfcf67f25b0c5a77b68726598827592);
+            
+        
+
+        marker_ffe2c9e60fb92dd27f07e982eb2d7603.bindPopup(popup_5ddae242dcf062a8dffe8a7ff8a1203e)
+        ;
+
+        
+    
+    
+            marker_ffe2c9e60fb92dd27f07e982eb2d7603.bindTooltip(
+                `<div>
+                     体育综合馆 · 运动
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ffe2c9e60fb92dd27f07e982eb2d7603.setIcon(icon_2b3d6d9c6a9e2ae775807d8b02aed8e8);
+            
+    
+            feature_group_a78da14258b38f19561503de02ce7386.addTo(map_ea241352d111a9f01f83cb857108298c);
+        
+    
+            var feature_group_ae8351617130c6e3be29d79c566a1416 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_2c340785aac139ce0b10c44c3451316d = L.marker(
+                [34.394, 113.7425],
+                {
+}
+            ).addTo(feature_group_ae8351617130c6e3be29d79c566a1416);
+        
+    
+            var icon_be4a43562e9cc37eee9cfd51ff9b479e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e058a2463f8c6753e4b488407155af35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_933380d4e2d91229341128bf804471d2 = $(`<div id="html_933380d4e2d91229341128bf804471d2" style="width: 100.0%; height: 100.0%;"><div style='font-family:Microsoft YaHei,sans-serif;width:250px'><h4 style='margin:0 0 6px 0;color:#2AAD27'>学生生活服务中心</h4><div style='font-size:12px;color:#666;margin-bottom:6px'>类别：生活　坐标：34.39400, 113.74250</div><div style='font-size:13px;line-height:1.6'>集餐饮、休闲、活动报名于一体的枢纽，是学生日常社交和生活互动的核心场所。</div></div></div>`)[0];
+                popup_e058a2463f8c6753e4b488407155af35.setContent(html_933380d4e2d91229341128bf804471d2);
+            
+        
+
+        marker_2c340785aac139ce0b10c44c3451316d.bindPopup(popup_e058a2463f8c6753e4b488407155af35)
+        ;
+
+        
+    
+    
+            marker_2c340785aac139ce0b10c44c3451316d.bindTooltip(
+                `<div>
+                     学生生活服务中心 · 生活
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2c340785aac139ce0b10c44c3451316d.setIcon(icon_be4a43562e9cc37eee9cfd51ff9b479e);
+            
+    
+            feature_group_ae8351617130c6e3be29d79c566a1416.addTo(map_ea241352d111a9f01f83cb857108298c);
+        
+    
+            var feature_group_4b8afa3bb8d9d740117843e39e15be6e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_b113cd033b831a749a871e806b938294 = L.marker(
+                [34.396, 113.7455],
+                {
+}
+            ).addTo(feature_group_4b8afa3bb8d9d740117843e39e15be6e);
+        
+    
+            var icon_5b1419b617151c0c7cb1abea9478a88b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_67798c3d64e192b9a9369d78c8b7cafa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f3abc990e6a55bded6b7f73ba5521b64 = $(`<div id="html_f3abc990e6a55bded6b7f73ba5521b64" style="width: 100.0%; height: 100.0%;"><div style='font-family:Microsoft YaHei,sans-serif;width:250px'><h4 style='margin:0 0 6px 0;color:#CB2B3E'>行政管理大楼</h4><div style='font-size:12px;color:#666;margin-bottom:6px'>类别：行政　坐标：34.39600, 113.74550</div><div style='font-size:13px;line-height:1.6'>学院的决策中枢，负责日常运营和学务管理，建筑体量宏大，气势庄重。</div></div></div>`)[0];
+                popup_67798c3d64e192b9a9369d78c8b7cafa.setContent(html_f3abc990e6a55bded6b7f73ba5521b64);
+            
+        
+
+        marker_b113cd033b831a749a871e806b938294.bindPopup(popup_67798c3d64e192b9a9369d78c8b7cafa)
+        ;
+
+        
+    
+    
+            marker_b113cd033b831a749a871e806b938294.bindTooltip(
+                `<div>
+                     行政管理大楼 · 行政
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b113cd033b831a749a871e806b938294.setIcon(icon_5b1419b617151c0c7cb1abea9478a88b);
+            
+    
+            feature_group_4b8afa3bb8d9d740117843e39e15be6e.addTo(map_ea241352d111a9f01f83cb857108298c);
+        
+    
+            var feature_group_7b6f36a51d4da140ac4ff969b67c89c3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_ba42328677510cb680cf794a5809f310 = L.marker(
+                [34.395, 113.745],
+                {
+}
+            ).addTo(feature_group_7b6f36a51d4da140ac4ff969b67c89c3);
+        
+    
+            var icon_1519e858efb6c2babd36f5deb979643c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2a21c18e12fd7577d102dc766a8b6444 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fe6f196352e6846fb84a3fd461fe6c4b = $(`<div id="html_fe6f196352e6846fb84a3fd461fe6c4b" style="width: 100.0%; height: 100.0%;"><div style='font-family:Microsoft YaHei,sans-serif;width:250px'><h4 style='margin:0 0 6px 0;color:#4A9EA8'>中央广场与绿荫大道</h4><div style='font-size:12px;color:#666;margin-bottom:6px'>类别：景观　坐标：34.39500, 113.74500</div><div style='font-size:13px;line-height:1.6'>校园中心地带，绿植环绕，是师生休憩、散步和举行小型户外活动的理想场所。</div></div></div>`)[0];
+                popup_2a21c18e12fd7577d102dc766a8b6444.setContent(html_fe6f196352e6846fb84a3fd461fe6c4b);
+            
+        
+
+        marker_ba42328677510cb680cf794a5809f310.bindPopup(popup_2a21c18e12fd7577d102dc766a8b6444)
+        ;
+
+        
+    
+    
+            marker_ba42328677510cb680cf794a5809f310.bindTooltip(
+                `<div>
+                     中央广场与绿荫大道 · 景观
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ba42328677510cb680cf794a5809f310.setIcon(icon_1519e858efb6c2babd36f5deb979643c);
+            
+    
+            feature_group_7b6f36a51d4da140ac4ff969b67c89c3.addTo(map_ea241352d111a9f01f83cb857108298c);
+        
+    
+            ant_path_ea0d91bd09c584f8b449941e7fcd2764 = L.polyline.antPath(
+              [[34.3975, 113.743], [34.3935, 113.7475], [34.395, 113.745], [34.392, 113.7465], [34.394, 113.7425], [34.396, 113.7455], [34.395, 113.745], [34.397, 113.747]],
+              {
+  "stroke": true,
+  "color": "#8b5cf6",
+  "weight": 2,
+  "opacity": 0.55,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": "6 10",
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#8b5cf6",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 400,
+  "pulseColor": "#FFFFFF",
+}
+        ).addTo(map_ea241352d111a9f01f83cb857108298c);
+        
+    
+            var tile_layer_0d5caf9c1a553d88637b08bdae68a213 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_8b62675cb82e007f320b575bb6937061 = new L.Control.MiniMap(
+                tile_layer_0d5caf9c1a553d88637b08bdae68a213,
+                {
+  "position": "bottomright",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": true,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_ea241352d111a9f01f83cb857108298c.addControl(mini_map_8b62675cb82e007f320b575bb6937061);
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_ea241352d111a9f01f83cb857108298c);
+        
+    
+            var layer_control_f35d38d3ceac5cf0952018376687bb46_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_f506cec495384f4aaeec05193162b16f,
+                    "\u536b\u661f\u5f71\u50cf" : tile_layer_dd8b807b60513994d2df2f7c84db4f09,
+                    "\u5730\u5f62\u56fe (OpenTopoMap)" : tile_layer_25a417ccdb4fcafca4233e5da103b86c,
+                },
+                overlays :  {
+                    "\u6587\u5316 (book)" : feature_group_bccc3e972fe8746949bb72b60b18be1a,
+                    "\u6559\u5b66 (graduation-cap)" : feature_group_101c970e2b77a0b920aaf691783529a9,
+                    "\u8fd0\u52a8 (futbol)" : feature_group_a78da14258b38f19561503de02ce7386,
+                    "\u751f\u6d3b (cutlery)" : feature_group_ae8351617130c6e3be29d79c566a1416,
+                    "\u884c\u653f (building)" : feature_group_4b8afa3bb8d9d740117843e39e15be6e,
+                    "\u666f\u89c2 (tree)" : feature_group_7b6f36a51d4da140ac4ff969b67c89c3,
+                },
+            };
+            let layer_control_f35d38d3ceac5cf0952018376687bb46 = L.control.layers(
+                layer_control_f35d38d3ceac5cf0952018376687bb46_layers.base_layers,
+                layer_control_f35d38d3ceac5cf0952018376687bb46_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_ea241352d111a9f01f83cb857108298c);
+
+        
+</script>
+</html>

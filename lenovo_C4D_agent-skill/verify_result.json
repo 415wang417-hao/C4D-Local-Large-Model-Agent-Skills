@@ -1,0 +1,22 @@
+{
+  "model": "gemma4:e4b",
+  "num_gpu": "0",
+  "device": {
+    "os": "Windows 10 (10.0.26200)",
+    "python": "3.11.8",
+    "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "ram_gb": "23.7 GB",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 8151 MiB, 592.15",
+    "ollama": "ollama version is 0.35.1"
+  },
+  "stats": {
+    "model": "gemma4:e4b",
+    "prompt_tokens": 74,
+    "completion_tokens": 785,
+    "wall_time_s": 43.616,
+    "load_duration_s": 0.006,
+    "tokens_per_sec": 18.43
+  },
+  "sample_output": "{\n  \"landmarks\": [\n    {\n      \"name\": \"主校门\",\n      \"lat\": 34.7650,\n      \"lng\": 112.4300,\n      \"category\": \"入口/行政\",\n      \"description\": \"学院的主要入口，访客和学生进入校园的起点，设有访客接待处。\"\n    },\n    {\n      \"name\": \"中央图书馆\",\n      \"lat\": 34.7665,\n      \"lng\": 112.4315,\n      \"category\": \"学术/学习\",\n      \"description\": \"校园内的核心学习场所，提供丰富的学术书籍和安静的自习环境。\"\n    },\n    {\n      \"name\": \"学生活动中心\",\n      \"lat\": 34.7640,\n      \"lng\": 112.4290,\n      \"category\": \"社交/休闲\",\n      \"description\": \"供学生进行社交、聚会和参与活动的场所，通常设有咖啡厅和多功能会议室。\"\n    }\n  ]\n}",
+  "measured_at": "2026-10-05 16:07:35"
+}

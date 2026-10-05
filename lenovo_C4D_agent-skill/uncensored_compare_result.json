@@ -1,0 +1,57 @@
+{
+  "prompt": "你是郑州西亚斯学院(SIAS)的校园地理信息助手。\n学校位于河南省郑州市新郑市（约 34.39°N, 113.74°E），以国际化办学和欧式建筑风格著称。\n\n请生成 5 个校园地点，要求：\n1. 覆盖 教学、文化、生活、运动、行政、景观 中的至少 4 类；\n2. 每个地点给出：name（中文名）、category（类别）、lat/lng（经纬度，保留 2-4 位小数）、description（30-60 字中文描述）；\n3. 只输出 JSON：{\"landmarks\":[{...}]}",
+  "results": [
+    {
+      "tag": "gemma4:e4b",
+      "label": "默认模型",
+      "params": "E4B",
+      "wall_s": 84.31,
+      "eval_count": 1429,
+      "eval_duration_s": 82.27,
+      "load_duration_s": 0.01,
+      "tok_per_s": 17.37,
+      "analysis": {
+        "json_ok": true,
+        "count": 5,
+        "categories": [
+          "Administration",
+          "Landscape",
+          "Life",
+          "Sports",
+          "Teaching"
+        ],
+        "category_count": 5,
+        "refused": false,
+        "avg_desc_len": 45.4,
+        "coord_precision_ok": 0
+      },
+      "raw_excerpt": "{\n  \"landmarks\": [\n    {\n      \"name\": \"国际教学楼\",\n      \"category\": \"Teaching\",\n      \"lat/lng\": \"34.3920, 113.7415\",\n      \"description\": \"欧式风格的主教学楼，配备现代化多媒体教室，是学生学习和学术交流的核心场所，体现国际化教育理念。\"\n    },\n    {\n      \"name\": \"学院花园广场\",\n      \"category\": \"Landscape\",\n      \"lat/lng\": \"34.3925, 113.7400\",\n      \"description\": \"校园内的主要景观区域，植被茂盛，建筑群环绕，常用于户外活动和文化交流，呈现典雅的欧式园林风格。\"\n    },\n    {\n      \"name\": \"学生会生活区\",\n      \"category\": \"Life\",\n      \"lat/lng\": \"34.3935, 113.7408\",\n      \"description\": \"位于校园中心，设有咖啡厅、休息区和社团活动空间，是学生们交流、放松和进行课外活动的重要枢纽。\"\n    },\n    {\n      \"name\": \"欧式运动场馆\",\n      \"category\": \"Sports\",\n      \"lat/lng\": \"34.3910, 113.7430\",\n      \"description\": \"拥有室内篮球场和健身设施，建筑设计兼具功能性与美观性，满足学生日常健身和竞技体育的需求。\"\n    },\n    {\n      \"name\": \"行政中心大楼\",\n      \"category\": \"Administration\",\n      \"lat/lng\": \"34.3940, 113.7425\",\n      \"description\": \"学校管理的核心区域，气势恢宏，代表了学校的行政权威和国际化发展方向，是重要的会客场所。\"\n    }\n  ]\n}"
+    },
+    {
+      "tag": "Librellama/gemma4:e2b-Uncensored",
+      "label": "Uncensored 变体",
+      "params": "E2B",
+      "wall_s": 62.5,
+      "eval_count": 868,
+      "eval_duration_s": 55.669,
+      "load_duration_s": 5.86,
+      "tok_per_s": 15.59,
+      "analysis": {
+        "json_ok": true,
+        "count": 5,
+        "categories": [
+          "教学",
+          "景观",
+          "生活",
+          "行政",
+          "运动"
+        ],
+        "category_count": 5,
+        "refused": false,
+        "avg_desc_len": 35.8,
+        "coord_precision_ok": 0
+      },
+      "raw_excerpt": "{\n\"landmarks\": [\n{\n\"name\": \"国际教学楼\",\n\"category\": \"教学\",\n\"lat/lng\": \"34.3920, 113.7430\",\n\"description\": \"学校核心教学区域，设有多个专业教室和现代化的实验室，是学生学习和科研的主要场所。\"\n},\n{\n\"name\": \"行政管理中心\",\n\"category\": \"行政\",\n\"lat/lng\": \"34.3905, 113.7415\",\n\"description\": \"学校的行政办公区域，包括校长办公室和各类管理部门，体现了学校的官方职能。\"\n},\n{\n\"name\": \"欧式花园景观区\",\n\"category\": \"景观\",\n\"lat/lng\": \"34.3910, 113.7445\",\n\"description\": \"校园内精心设计的欧式建筑和绿化区域，提供宁静的休憩空间和美观的视野。\"\n},\n{\n\"name\": \"体育运动场\",\n\"category\": \"运动\",\n\"lat/lng\": \"34.3935, 113.7400\",\n\"description\": \"用于学生进行各类体育锻炼和团队活动的区域，设施完备，促进身心健康发展。\"\n},\n{\n\"name\": \"学生生活区\",\n\"category\": \"生活\",\n\"lat/lng\": \"34.3915, 113.7425\",\n\"description\": \"包括学生宿舍、餐饮设施和公共休息区，是学生日常居住和社交的温馨场所。\"\n}\n]\n}"
+    }
+  ]
+}
