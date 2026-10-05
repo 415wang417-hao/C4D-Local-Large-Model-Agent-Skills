@@ -85,7 +85,8 @@ python uncensored_compare.py
 │   └── memory/agent_memory.json   #    持久记忆：每步输入输出 + token + 耗时
 ├── lenovo_C4D_map.html            # ② 最终交互式地图产物（可直接双击打开）
 ├── lenovo_C4D_map_result.json     #    地图结构化结果（标记点 / 类别 / 统计）
-├── lenovo_C4D_output_screenshots/ # ③ 运行截图（6 张）+ 截图清单.md
+├── lenovo_C4D_output_screenshots/ # ③ 运行截图 4 张 + 截图清单.md
+│   ├── screenshot_01 / 01b / 02 / 03 ...png  #    模型设备与速度 / 交互式地图 / 函数调用
 ├── lenovo_C4D_Agent技能包_清单.md  # ④ Agent 技能包清单（能力 / 工具 / 文件对照）
 ├── lenovo_C4D_方案设计.md          #    方案设计（含本地 vs 云端取舍对比）
 ├── lenovo_C4D_验证报告.md          #    验证报告（环境取证 / 指标 / 复现步骤）
